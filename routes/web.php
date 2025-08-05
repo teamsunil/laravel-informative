@@ -9,6 +9,11 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use JeroenNoten\LaravelAdminLte\Http\Controllers\DarkModeController;
 use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Admin\HomeSectionController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\FrontProductController;
+
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -17,6 +22,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 
+Route::get('/products', [FrontProductController::class, 'index'])->name('products.index');
+Route::get('/product/{slug}', [FrontProductController::class, 'show'])->name('products.show');
 
 
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.listing');
@@ -30,6 +37,13 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+    Route::get('/products', [ProductController::class, 'index'])->name('admin.products.index');
+    Route::get('/products/create', [ProductController::class, 'create'])->name('admin.products.create');
+    Route::post('/products/store', [ProductController::class, 'store'])->name('admin.products.store');
+    Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
+    Route::post('/products/{id}/update', [ProductController::class, 'update'])->name('admin.products.update');
+    Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
 });
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('settings', [SettingController::class, 'edit_settings'])->name('admin.settings.edit');
@@ -41,12 +55,15 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('menus/sort', [\App\Http\Controllers\Admin\MenuController::class, 'sort'])->name('menus.sort');
     Route::post('menus/update-order', [\App\Http\Controllers\Admin\MenuController::class, 'updateOrder'])->name('menus.updateOrder');
 
-
+    Route::get('/home-page-settings', [HomeSectionController::class, 'edit'])->name('admin.home-page-settings.edit');
+    Route::post('/home-page-settings', [HomeSectionController::class, 'update'])->name('admin.home-page-settings.update');
 
     // Page CRUD routes
     Route::resource('pages', \App\Http\Controllers\Admin\PageController::class);
     Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
     Route::resource('blog-categories', BlogCategoryController::class);
+
+
 });
 
 require __DIR__ . '/auth.php';

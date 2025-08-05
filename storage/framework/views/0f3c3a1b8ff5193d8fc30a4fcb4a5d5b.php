@@ -32,11 +32,11 @@
 
       <div class="collapse navbar-collapse text-center" id="navbarsMain">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="<?php echo e(url('/')); ?>">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="<?php echo e(url('/about-us')); ?>">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="<?php echo e(url('/services')); ?>">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="<?php echo e(url('/contact')); ?>">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="<?php echo e(url('/blogs')); ?>">Blog</a></li>
+          <?php $__currentLoopData = $headerMenus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <li class="nav-item">
+                  <a class="nav-link" href="<?php echo e(url($menu->url)); ?>"><?php echo e($menu->title); ?></a>
+              </li>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
         <a href="<?php echo e(url('/contact')); ?>" class="btn btn-solid-border btn-round-full ml-lg-4">Get a Quote</a>
       </div>

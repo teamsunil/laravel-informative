@@ -5,22 +5,20 @@
         <div class="widget">
           <h4 class="text-capitalize mb-4">Company</h4>
           <ul class="list-unstyled footer-menu lh-35">
-            <li><a href="<?php echo e(url('/terms-and-conditions')); ?>">Terms & Conditions</a></li>
-            <li><a href="<?php echo e(url('/privacy-policy')); ?>">Privacy Policy</a></li>
-            <li><a href="<?php echo e(url('/support')); ?>">Support</a></li>
-            <li><a href="<?php echo e(url('/faq	')); ?>">FAQ</a></li>
-          </ul>
+            <?php $__currentLoopData = $footerCompanyMenus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><a href="<?php echo e(url($menu->url)); ?>"><?php echo e($menu->title); ?></a></li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </ul>
         </div>
       </div>
       <div class="col-lg-2 col-md-6">
         <div class="widget">
           <h4 class="text-capitalize mb-4">Quick Links</h4>
           <ul class="list-unstyled footer-menu lh-35">
-            <li><a href="<?php echo e(url('/about')); ?>">About</a></li>
-            <li><a href="<?php echo e(url('/services')); ?>">Services</a></li>
-            <li><a href="<?php echo e(url('/team')); ?>">Team</a></li>
-            <li><a href="<?php echo e(url('/contact')); ?>">Contact</a></li>
-          </ul>
+            <?php $__currentLoopData = $footerQuickMenus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><a href="<?php echo e(url($menu->url)); ?>"><?php echo e($menu->title); ?></a></li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </ul>
         </div>
       </div>
       <div class="col-lg-3 col-md-6">

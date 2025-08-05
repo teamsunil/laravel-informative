@@ -401,6 +401,31 @@ return [
     'icon' => 'fa solid fa-sort',
     'label_color' => 'warning',
 ],
+[
+    'text' => 'Home Page Settings',
+    'url'  => 'admin/home-page-settings',
+    'icon' => 'fas fa-home',
+    'label_color' => 'success',
+],
+
+
+[
+    'text' => 'Products',
+    'url'  => 'admin/products',
+    'icon' => 'fas fa-boxes',
+    'label_color' => 'primary',
+    'submenu' => [
+        [
+            'text' => 'Add New Product',
+            'url'  => 'admin/products/create',
+        ],
+        [
+            'text' => 'All Products',
+            'url'  => 'admin/products',
+        ],
+    ],
+],
+
        
        
     ],

@@ -16,8 +16,10 @@
                 <ul class="list-group sortable-menu" data-position="<?php echo e($position); ?>">
                     <?php $__currentLoopData = $menuItems; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li class="list-group-item d-flex justify-content-between align-items-center" data-id="<?php echo e($menu->id); ?>">
-                            <?php echo e($menu->title); ?>
-
+                            <div class="d-flex align-items-center">
+                                <input type="text" name="title[<?php echo e($menu->id); ?>]" class="form-control form-control-sm d-inline w-50" value="<?php echo e($menu->title); ?>">
+                                <input type="text" name="url[<?php echo e($menu->id); ?>]" class="form-control form-control-sm d-inline w-50 ml-2" value="<?php echo e($menu->url); ?>">
+                            </div>
                             <span class="badge badge-primary"><?php echo e($menu->order); ?></span>
                         </li>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -39,9 +41,15 @@
 
         $('#saveOrder').click(function () {
             var orderData = [];
+            var titles = {};
+            var urls = {};
+
             $('.sortable-menu').each(function(){
                 $(this).children('li').each(function(){
-                    orderData.push($(this).data('id'));
+                    var id = $(this).data('id');
+                    orderData.push(id);
+                    titles[id] = $(this).find('input[name="title[' + id + ']"]').val();
+                    urls[id] = $(this).find('input[name="url[' + id + ']"]').val();
                 });
             });
 
@@ -50,11 +58,13 @@
                 method: 'POST',
                 data: {
                     _token: '<?php echo e(csrf_token()); ?>',
-                    order: orderData
+                    order: orderData,
+                    titles: titles,
+                    urls: urls
                 },
                 success: function (res) {
                     if(res.status === 'success'){
-                        alert('Order Updated Successfully!');
+                        alert('Menus Updated Successfully!');
                         location.reload();
                     }
                 }

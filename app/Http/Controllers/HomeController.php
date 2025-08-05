@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Page;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use App\Models\HomeSection;
 
 class HomeController extends Controller
 {
@@ -17,6 +18,8 @@ class HomeController extends Controller
         // $sections = Section::where('status', 1)->get()->keyBy('key');
         $blogs = Blog::latest()->take(6)->get();
 
-        return view('front.home', compact('settings', 'page'));
+        $homeSection = HomeSection::first();
+
+        return view('front.home', compact('settings', 'page', 'homeSection', 'blogs'));
     }
 }
