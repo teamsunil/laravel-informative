@@ -331,11 +331,27 @@ return [
             'url' => 'admin/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
-         [
+
+        [
             'text' => 'Update Settings',
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
+
+        [
+            'text' => 'Home Page Settings',
+            'url'  => 'admin/home-page-settings',
+            'icon' => 'fas fa-home',
+            'label_color' => 'success',
+        ],
+
+        [
+            'text' => 'Sort Menus',
+            'url'  => 'admin/menus/sort',
+            'icon' => 'fa solid fa-sort',
+            'label_color' => 'warning',
+        ],
+
         [
             'text' => 'pages',
             'url' => 'admin/pages',
@@ -395,18 +411,8 @@ return [
     //     ],
     // ],
 
-    [
-    'text' => 'Sort Menus',
-    'url'  => 'admin/menus/sort',
-    'icon' => 'fa solid fa-sort',
-    'label_color' => 'warning',
-],
-[
-    'text' => 'Home Page Settings',
-    'url'  => 'admin/home-page-settings',
-    'icon' => 'fas fa-home',
-    'label_color' => 'success',
-],
+
+
 
 
 [

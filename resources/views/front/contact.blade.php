@@ -46,22 +46,22 @@
                     <button class="btn btn-main" name="submit" type="submit">Send Message</button>
                 </form>
             </div>
-
             <div class="col-lg-5 col-sm-12">
                 <div class="contact-content pl-lg-5 mt-5 mt-lg-0">
-                    <span class="text-muted">We are Professionals</span>
+                    <span class="text-muted">{{$settings['tagline']}}  are Professionals</span>
                     <h2 class="mb-5 mt-2">Don’t Hesitate to contact with us for any kind of information</h2>
 
                     <ul class="address-block list-unstyled">
                         <li>
-                            <i class="ti-direction mr-3"></i>North Main Street,Brooklyn Australia
+                            <i class="ti-direction mr-3"></i>{{$settings['site_address']}}
                         </li>
                         <li>
-                            <i class="ti-email mr-3"></i>Email: contact@mail.com
-                        </li>
+                            
+                        <a href="tel:{{ $settings['site_phone'] ?? '+00-000-0000' }}"><i class="ti-mobile mr-3"></i>Phone:+ {{$settings['site_phone']}}
+                        </li></a>
                         <li>
-                            <i class="ti-mobile mr-3"></i>Phone:+88 01672 506 744
-                        </li>
+                        <a href="mailto:{{ $settings['site_email'] ?? 'info@example.com' }}"><i class="ti-email mr-3"></i>Email: {{$settings['site_email']}}
+                        </li></a>
                     </ul>
 
                     <ul class="social-icons list-inline mt-5">

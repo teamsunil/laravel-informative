@@ -38,7 +38,8 @@
           </div>
           <p>{{ $settings['tagline'] ?? 'Creative Agency Template' }}</p>
           <h6><a href="mailto:{{ $settings['site_email'] ?? 'support@example.com' }}">{{ $settings['site_email'] ?? 'support@example.com' }}</a></h6>
-          <p><i class="ti-mobile mr-2"></i>{{ $settings['site_phone'] ?? '+00 0000 0000' }}</p>
+
+           <a href="tel:{{ $settings['site_phone'] ?? '+00-000-0000' }}"><p><i class="ti-mobile mr-2"></i>{{ $settings['site_phone'] ?? '+00 0000 0000' }}</p></a>
         </div>
       </div>
     </div>

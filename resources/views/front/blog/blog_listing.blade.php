@@ -28,7 +28,9 @@
 
                         <div class="blog-item-content bg-white p-5">
                             <div class="blog-item-meta bg-gray py-1 px-2">
-                                <span class="text-muted text-capitalize mr-3"><i class="ti-pencil-alt mr-2"></i>{{ $blog->category ?? 'Blog' }}</span>
+
+                              {{-- @dd($blog->category) --}}
+                                <span class="text-muted text-capitalize mr-3"><i class="ti-pencil-alt mr-2"></i>{{ $blog->category->name ?? 'Blog' }}</span>
                                 <span class="text-black text-capitalize mr-3"><i class="ti-time mr-1"></i> {{ $blog->created_at->format('jS F, Y') }}</span>
                             </div> 
 

@@ -60,4 +60,4 @@
     </div>
   </div>
 </footer>
-<?php /**PATH D:\AI-Laravel\dotsquares-infoweb\resources\views\front\partials\footer.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\AI-Laravel\dotsquares-infoweb\resources\views/front/partials/footer.blade.php ENDPATH**/ ?>

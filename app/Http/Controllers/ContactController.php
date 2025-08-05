@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
     public function show()
     {
-         $settings = Setting::pluck('value', 'key')->toArray();
+        $settings = Setting::pluck('value', 'key')->toArray();
         return view('front.contact',compact('settings'));
     }
 
@@ -21,12 +21,7 @@ class ContactController extends Controller
             'email'   => 'required|email',
             'message' => 'required|string',
         ]);
-
-        // dd($validated);
-
-        // Save contact feedback in the database
         Contact::create($validated);
-
         return back()->with('success', 'Your message was sent successfully.');
     }
 }
