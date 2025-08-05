@@ -8,8 +8,18 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public function index() {
-        $products = Product::orderBy('id', 'desc')->get();
+    public function index(Request $request) {
+
+        $query = Product::query();
+
+         if ($request->filled('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%')
+                ->orWhere('slug', 'like', '%' . $request->search . '%')
+                ->orWhere('sku', 'like', '%' . $request->search . '%');
+        }
+
+        $products = $query->orderBy('id', 'desc')->paginate(10);
+
         return view('admin.products.index', compact('products'));
     }
 

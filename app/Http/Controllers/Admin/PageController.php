@@ -12,9 +12,16 @@ class PageController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pages = Page::all();
+
+        $query = Page::query();
+
+         if ($request->filled('search')) {
+            $query->where('title', 'like', '%' . $request->search . '%')
+                ->orWhere('slug', 'like', '%' . $request->search . '%');
+        }
+        $pages = $query->orderBy('id', 'desc')->paginate(10);
         return view('admin.pages.index', compact('pages'));
     }
 

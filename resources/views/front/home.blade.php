@@ -193,14 +193,14 @@
         <!-- Section Testimonial End -->
         <section class="section latest-blog bg-2">
     <div class="container">
-        <div class="row justify-content-center">
+        {{-- <div class="row justify-content-center">
             <div class="col-lg-7 text-center">
                 <div class="section-title">
                     <span class="h6 text-color">Latest News</span>
                     <h2 class="mt-3 content-title text-white">Latest articles to enrich knowledge</h2>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="row justify-content-center">
             {!! $homeSection->latest_news !!}
@@ -217,7 +217,7 @@
                             <h2 class="mt-2 mb-4 mb-lg-0">Entrust Your Project to Our Best Team of Professionals</h2>
                         </div>
                         <div class="col-lg-4">
-                            <a href="contact.html" class="btn btn-main btn-round-full float-lg-right ">Contact Us</a>
+                            <a href={{ route('contact.show') }} class="btn btn-main btn-round-full float-lg-right ">Contact Us</a>
                         </div>
                     </div>
                 </div>

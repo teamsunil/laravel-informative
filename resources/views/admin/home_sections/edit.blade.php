@@ -45,9 +45,8 @@
 
         <!-- Expert -->
         <div class="form-group">
-            <label>Expert</label>
-            <textarea name="expert" id="expert" class="form-control summernote"
-                value="{{ old('expert', $homeSection->expert) }}"></textarea>
+            <label>Latest News</label>
+            <textarea name="expert" class="form-control summernote">{{ old('expert', $homeSection->expert) }}</textarea>
         </div>
 
 

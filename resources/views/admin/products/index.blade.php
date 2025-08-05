@@ -1,7 +1,23 @@
 @extends('adminlte::page')
 
 @section('title', 'Manage Products')
+<style>
+    .input-group .form-control {
+    border-right: 0;
+    box-shadow: none !important;
+}
 
+.input-group .form-control:focus {
+    border-color: #0d6efd;
+    outline: none;
+}
+
+.input-group .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: none !important;
+}
+    </style>
 @section('content_header')
     <div class="d-flex justify-content-between align-items-center mb-2">
         <div>
@@ -29,6 +45,14 @@
     <div class="card shadow-sm">
         <div class="card-header bg-white d-flex justify-content-between align-items-center">
             <h5 class="mb-0">All Products</h5>
+            <form action="{{ route('admin.products.index') }}" method="GET" class="d-flex align-items-center" style="max-width: 400px; width: 100%;">
+                <div class="input-group shadow-sm">
+                    <input type="text" name="search" class="form-control border-primary" placeholder="Search Products..." value="{{ request('search') }}">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
         </div>
 
         <div class="card-body p-0">
@@ -47,7 +71,7 @@
                     <tbody>
                         @forelse($products as $product)
                             <tr>
-                                <td>{{ $product->id }}</td>
+                                <td>{{ $loop->iteration + ($products->currentPage() - 1) * $products->perPage() }}</td>
                                 <td class="fw-bold">{{ $product->name }}</td>
                                 <td class="text-muted">{{ $product->slug }}</td>
                                 <td>{{ number_format($product->price, 2) }}</td>

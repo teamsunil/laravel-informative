@@ -38,6 +38,8 @@ class HomeSectionController extends Controller
             $homeSection->about_section_image = $path;
         }
 
+       
+
         $homeSection->services_lists = json_encode($request->services_lists);
         $homeSection->testimonial_lists = json_encode($request->testimonial_lists);
 

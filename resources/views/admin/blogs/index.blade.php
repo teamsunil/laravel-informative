@@ -25,6 +25,15 @@
     <div class="card shadow-sm">
         <div class="card-header bg-white d-flex justify-content-between align-items-center">
             <h5 class="mb-0">All Blogs</h5>
+
+               <form action="{{ route('blogs.index') }}" method="GET" class="d-flex align-items-center" style="max-width: 400px; width: 100%;">
+                <div class="input-group shadow-sm">
+                    <input type="text" name="search" class="form-control border-primary" placeholder="Search pages..." value="{{ request('search') }}">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
         </div>
 
         <div class="card-body p-0">

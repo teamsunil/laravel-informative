@@ -3,13 +3,47 @@
 
 @section('title', 'Manage Pages')
 
+<style>
+    .input-group .form-control {
+    border-right: 0;
+    box-shadow: none !important;
+}
+
+.input-group .form-control:focus {
+    border-color: #0d6efd;
+    outline: none;
+}
+
+.input-group .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: none !important;
+}
+    </style>
+
 @section('content_header')
     <div class="d-flex justify-content-between align-items-center mb-2">
         <div>
             <h1 class="h3 text-primary">
                 <i class="fas fa-file-alt"></i> Manage Pages
             </h1>
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
             <nav aria-label="breadcrumb">
+
+                    
                 <ol class="breadcrumb bg-transparent px-0">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Pages</li>
@@ -26,6 +60,14 @@
     <div class="card shadow-sm">
         <div class="card-header bg-white d-flex justify-content-between align-items-center">
             <h5 class="mb-0">All Pages</h5>
+               <form action="{{ route('pages.index') }}" method="GET" class="d-flex align-items-center" style="max-width: 400px; width: 100%;">
+                <div class="input-group shadow-sm">
+                    <input type="text" name="search" class="form-control border-primary" placeholder="Search pages..." value="{{ request('search') }}">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
         </div>
 
         <div class="card-body p-0">

@@ -9,9 +9,17 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $blogs = Blog::latest()->paginate(10);
+
+        $query = Blog::query();
+
+         if ($request->filled('search')) {
+            $query->where('title', 'like', '%' . $request->search . '%')
+                ->orWhere('slug', 'like', '%' . $request->search . '%');
+        }
+
+        $blogs =  $query->orderBy('id', 'desc')->paginate(10);
         return view('admin.blogs.index', compact('blogs'));
     }
 
