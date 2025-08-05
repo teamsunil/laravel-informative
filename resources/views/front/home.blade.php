@@ -32,7 +32,7 @@
 
         <!-- Section Intro Start -->
 
-        {!!$homeSection->expert!!}
+        {!!$homeSection->latest_news!!}
 
         {{-- <section class="section intro">
             <div class="container">
