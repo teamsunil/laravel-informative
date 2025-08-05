@@ -32,7 +32,9 @@
 
         <!-- Section Intro Start -->
 
-        <section class="section intro">
+        {!!$homeSection->expert!!}
+
+        {{-- <section class="section intro">
             <div class="container">
                 <div class="row ">
                     <div class="col-lg-8">
@@ -67,7 +69,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         <!-- Section Intro END -->
         <!-- Section About Start -->
